@@ -1,0 +1,50 @@
+{
+  "name": "webview-rpc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Type-safe bidirectional RPC for React Native WebView communication",
+  "type": "module",
+  "exports": {
+    "./core": {
+      "types": "../core/dist/index.d.ts",
+      "default": "../core/dist/index.js"
+    },
+    "./native": {
+      "types": "../native/dist/index.d.ts",
+      "default": "../native/dist/index.js"
+    },
+    "./web": {
+      "types": "../web/dist/index.d.ts",
+      "default": "../web/dist/index.js"
+    }
+  },
+  "files": ["README.md"],
+  "keywords": [
+    "webview",
+    "rpc",
+    "react-native",
+    "react",
+    "nextjs",
+    "typescript",
+    "ipc",
+    "type-safe"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apostolos-geyer/webview-ipc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/apostolos-geyer/webview-ipc/issues"
+  },
+  "homepage": "https://github.com/apostolos-geyer/webview-ipc#readme",
+  "peerDependencies": {
+    "@standard-schema/spec": "^1.0.0"
+  },
+  "dependencies": {
+    "@webviewrpc/core": "workspace:*",
+    "@webviewrpc/native": "workspace:*",
+    "@webviewrpc/web": "workspace:*"
+  }
+}

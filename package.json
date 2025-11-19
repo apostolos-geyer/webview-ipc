@@ -1,0 +1,64 @@
+{
+  "name": "webview-rpc-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.21.0",
+  "scripts": {
+    "build": "pnpm --filter '@webviewrpc/*' build",
+    "clean": "pnpm --filter '@webviewrpc/*' clean && rm -rf docs coverage",
+    "typecheck": "pnpm --filter '@webviewrpc/*' typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check --write .",
+    "docs": "typedoc",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog:preview": "conventional-changelog -p angular",
+    "version:patch": "pnpm -r exec -- npm version patch --no-git-tag-version",
+    "version:minor": "pnpm -r exec -- npm version minor --no-git-tag-version",
+    "version:major": "pnpm -r exec -- npm version major --no-git-tag-version",
+    "release": "pnpm build && pnpm test && pnpm publish -r --access public",
+    "release:dry": "pnpm build && pnpm test && pnpm publish -r --access public --dry-run",
+    "dev:mobile": "pnpm --filter mobile dev",
+    "dev:web": "pnpm --filter web dev",
+    "postinstall": "node ./scripts/patch-webview.cjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.10.5",
+    "@vitest/coverage-v8": "^4.0.10",
+    "@vitest/ui": "^4.0.10",
+    "conventional-changelog-cli": "^5.0.0",
+    "tsdown": "^0.4.0",
+    "typedoc": "^0.27.6",
+    "typedoc-plugin-markdown": "^4.9.0",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.10"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=10"
+  },
+  "pnpm": {
+    "overrides": {
+      "@expo/metro-runtime": "6.1.2",
+      "react": "19.1.0",
+      "react-dom": "19.1.0",
+      "react-native-css": "3.0.0",
+      "lightningcss": "1.30.1"
+    },
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "esbuild",
+      "sharp"
+    ]
+  },
+  "dependencies": {
+    "@standard-schema/spec": "^1.0.0",
+    "zod": "^4.1.12"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "entryPoints": [
+    "packages/core/src/index.ts",
+    "packages/native/src/index.ts",
+    "packages/web/src/index.ts"
+  ],
+  "entryPointStrategy": "expand",
+  "tsconfig": "tsconfig.docs.json",
+  "out": "docs",
+  "name": "webview-rpc",
+  "readme": "README.md",
+  "githubPages": true,
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true
+  },
+  "categorizeByGroup": true,
+  "sort": ["source-order"],
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "exclude": [
+    "**/node_modules/**",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/example/**",
+    "**/dist/**"
+  ],
+  "validation": {
+    "notExported": false,
+    "invalidLink": true,
+    "notDocumented": false
+  },
+  "hideGenerator": false,
+  "includeVersion": true
+}

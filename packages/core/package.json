@@ -1,0 +1,50 @@
+{
+  "name": "@webviewrpc/core",
+  "version": "1.0.0",
+  "description": "Core message protocol for webview-rpc",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsdown",
+    "clean": "rm -rf dist *.tsbuildinfo",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "cd ../.. && biome lint packages/core",
+    "format": "cd ../.. && biome format --write packages/core",
+    "prepublishOnly": "pnpm build && pnpm test"
+  },
+  "keywords": ["webview", "rpc", "react-native", "typescript", "ipc", "message-passing", "bidirectional"],
+  "author": "stoli",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apostolos-geyer/webview-ipc.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/apostolos-geyer/webview-ipc#readme",
+  "bugs": {
+    "url": "https://github.com/apostolos-geyer/webview-ipc/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@standard-schema/spec": "^1.0.0"
+  },
+  "devDependencies": {
+    "@standard-schema/spec": "^1.0.0",
+    "@types/node": "^22.10.5",
+    "tsdown": "^0.4.0",
+    "typescript": "~5.9.2"
+  }
+}
