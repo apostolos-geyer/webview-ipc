@@ -1,6 +1,6 @@
 {
   "name": "@webviewrpc/web",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Web/React client for webview-rpc",
   "type": "module",
   "main": "./dist/index.js",

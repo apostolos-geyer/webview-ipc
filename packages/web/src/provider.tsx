@@ -6,7 +6,7 @@
  */
 
 import type { Contract } from '@webview-rpc/core'
-import React, { type ReactNode, createContext, useContext, useEffect, useRef } from 'react'
+import { type ReactNode, createContext, useContext, useEffect, useRef } from 'react'
 import { createWebClient } from './client'
 import type { WebClient, WebClientOptions } from './types'
 

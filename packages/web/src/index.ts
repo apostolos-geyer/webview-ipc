@@ -14,6 +14,9 @@ export { createWebClient } from './client'
 export { WebViewRPCProvider, useClient } from './provider'
 export { useEvent, useProcedure } from './hooks'
 
+// Utility components and hooks
+export { useInWebView, InWebView, NotInWebView } from './utils'
+
 // Types
 export type {
   WebClient,

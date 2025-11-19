@@ -165,13 +165,13 @@ export function createWebClient<TContract extends Contract>(
       return
     }
 
-    handlers.forEach((handler) => {
+    for (const handler of handlers) {
       try {
         handler(message.data)
       } catch (error) {
         config.onError?.(error as Error)
       }
-    })
+    }
   }
 
   /**

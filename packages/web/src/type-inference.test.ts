@@ -3,11 +3,11 @@
  * Tests compile-time type inference using Vitest's expectTypeOf
  */
 
-import { describe, it, expectTypeOf } from 'vitest'
+import { defineContract, procedure } from '@webview-rpc/core'
+import { describe, expectTypeOf, it } from 'vitest'
 import { z } from 'zod'
-import { procedure, defineContract } from '@webview-rpc/core'
-import type { WebClient, Handler, EventHandler } from './types'
 import type { ProcedureHook, ProcedureState } from './hooks'
+import type { EventHandler, Handler, WebClient } from './types'
 
 // Test contract with known types matching native package tests
 const testContract = defineContract({
@@ -615,8 +615,8 @@ describe('Type Inference - WebClient', () => {
       // GIVEN: A procedure hook for navigate (returns void)
       type NavigateHook = ProcedureHook<{ screen: string }, void>
 
-      // THEN: data should be void | null
-      expectTypeOf<NavigateHook['data']>().toMatchTypeOf<void | null>()
+      // THEN: data should be undefined | null
+      expectTypeOf<NavigateHook['data']>().toMatchTypeOf<undefined | null>()
     })
   })
 })
